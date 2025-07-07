@@ -67,7 +67,7 @@ const LoginForm = () => {
       
       <Button
         variant="outline"
-        className="w-full flex items-center justify-center gap-2"
+        className="w-full flex items-center justify-center gap-2 bg-black text-white"
         onClick={async () => {
           await signIn.social({ provider: "google" });
         }}
