@@ -1,4 +1,5 @@
-import Dashboard from "@/components/dashboard";
+import Navbar from "@/components/navbar";
+import Dashboard from "@/components/sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
 interface Props {
@@ -11,7 +12,11 @@ const DashboardLayout = ({ children }: Props) => {
         <div >
             <SidebarProvider>
             <Dashboard/>
-            {children}
+            <main className="flex flex-col h-screen w-screen ">
+                <Navbar/>
+                {children}
+            </main>
+            
             </SidebarProvider>
         </div>  
         </div>
