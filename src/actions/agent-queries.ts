@@ -50,3 +50,19 @@ export const deleteAgent = async (id: string) => {
     })
     return agent
 }
+
+export const getOneAgent = async (id: string) => {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+    if (!session) {
+        throw new Error("Unauthorized")
+    }
+    const agent = await db.agent.findFirst({
+        where: {
+            id,
+            userId: session.user.id
+        }
+    })
+    return agent
+}
