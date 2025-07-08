@@ -54,7 +54,12 @@ const UserButton = () => {
           <ChevronDownIcon className="w-5 h-5 text-indigo-50" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" w-60 mt-2">
+      <DropdownMenuContent
+        className="w-60 mt-2 md:w-60 md:mt-2 md:left-auto md:right-0 left-0 right-0 max-w-full md:max-w-xs z-50"
+        align="end"
+        sideOffset={8}
+        side={typeof window !== 'undefined' && window.innerWidth < 768 ? 'bottom' : 'top'}
+      >
         <DropdownMenuItem
           onClick={onLogout}
           className="flex flex-row items-center justify-between text-red-600 focus:bg-red-50 focus:text-red-700 cursor-pointer"

@@ -1,4 +1,6 @@
 "use client";
+
+import { Sidebar, SidebarHeader, SidebarContent, SidebarFooter } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator";
 import { BotIcon, StarIcon, VideoIcon } from "lucide-react";
 import Link from "next/link";
@@ -15,19 +17,15 @@ const Dashboard = () => {
   const pathname = usePathname();
 
   return (
-    <aside
-      className="h-screen w-full max-w-xs border-r border-zinc-800 flex flex-col shadow-lg"
-      style={{
-        background: `radial-gradient(circle at left, #23233a 0%, #40407a 60%, #595987 100%)`,
-      }}
-    >
-      <div className="px-6 py-6">
+    
+    <Sidebar className=" h-screen max-w-xs shadow-lg ">
+      <SidebarHeader className="px-6 py-6">
         <h1 className="text-2xl font-bold text-indigo-50 tracking-tight drop-shadow">
           Dashboard
         </h1>
-      </div>
+      </SidebarHeader>
       <Separator className="bg-indigo-900/50" />
-      <nav className="flex-1 px-2 py-4">
+      <SidebarContent className="flex-1 px-2 py-4">
         <ul className="space-y-1">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
@@ -59,15 +57,14 @@ const Dashboard = () => {
             );
           })}
         </ul>
-      </nav>
-      <Separator className="bg-indigo-900/50" />
-      <div className="pb-10 px-6 w-full flex justify-center items-center">
-  <div className="bg-white/5 dark:bg-black/40 rounded-2xl shadow-lg border border-white/10 dark:border-white/5 p-4 flex items-center gap-2 backdrop-blur-sm transition hover:shadow-xl">
-    <UserButton />
-  </div>
-</div>
-
-    </aside>
+      </SidebarContent>
+      <SidebarFooter className="pb-10 px-6 w-full flex justify-center items-center">
+        <div className="bg-white/5 dark:bg-black/40 rounded-2xl shadow-lg border border-white/10 dark:border-white/5 p-4 flex items-center gap-2 backdrop-blur-sm transition hover:shadow-xl">
+          <UserButton />
+        </div>
+      </SidebarFooter>
+    </Sidebar>
+   
   );
 };
 
